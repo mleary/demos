@@ -24,7 +24,7 @@ df <- taylor::taylor_album_songs |>
 ## Does Taylor Swift release singles that are more danceable?
 
 ```{r}
-# warning: false
+#| warning: false
 df |> 
     ggplot2::ggplot(aes(x=danceability, y =single)) +
     geom_boxplot()
