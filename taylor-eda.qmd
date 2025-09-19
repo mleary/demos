@@ -1,0 +1,31 @@
+---
+title: "Look what you made me do with {ggplot2} "
+format: html
+---
+
+## load packages
+
+```{r}
+#| warning: false
+library(taylor)
+library(dplyr)
+library(ggplot2)
+```
+
+
+## define some variables
+```{r}
+df <- taylor::taylor_album_songs |> 
+    mutate(single = ifelse(is.na(single_release), 'No', "Yes"))
+
+
+```
+
+## Does Taylor Swift release singles that are more danceable?
+
+```{r}
+# warning: false
+df |> 
+    ggplot2::ggplot(aes(x=danceability, y =single)) +
+    geom_boxplot()
+```
